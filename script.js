@@ -1,4 +1,16 @@
-// code to display the current date in the header of the page.
+var saveButtons = document.getElementsByClassName("saveBtn");
+console.log(saveButtons);
+
+for (var i = 0; i < saveButtons.length; i++) {
+  saveButtons[i].addEventListener("click", function(event) {
+    event.preventDefault();
+    var eventText = textarea.value.trim();
+    localStorage.setItem("eventText", JSON.stringify(eventText));
+    renderMessage();
+  });
+}
+
+// display the current date in the header of the page.
 var today = dayjs();
 $('#currentDay').text(today.format('dddd, MMMM D'));
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
@@ -21,5 +33,4 @@ $(function () {
   // TODO: Add code to get any user input that was saved in localStorage and set
   // the values of the corresponding textarea elements. HINT: How can the id
   // attribute of each time-block be used to do this?
-//ADDING CHANGES PLS REMOVE
 });
